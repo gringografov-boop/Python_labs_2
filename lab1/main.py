@@ -1,7 +1,14 @@
+import logging
 from src.core.models import Task
 from src.receiver import TaskReceiver
 from src.sources.api import ApiStubTaskSource
 from src.sources.generator import GeneratorTaskSource
+
+logging.basicConfig(
+    level=logging.DEBUG,
+    format="%(asctime)s [%(levelname)s] %(name)s: %(message)s",
+    datefmt="%H:%M:%S",
+)
 
 
 def main() -> None:

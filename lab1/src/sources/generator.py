@@ -1,6 +1,8 @@
 from typing import Iterable
 from src.core.models import Task
+import logging
 
+logger = logging.getLogger(__name__)
 
 class GeneratorTaskSource:
     def __init__(self, count: int) -> None:

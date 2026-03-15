@@ -1,9 +1,12 @@
 from typing import Iterable
 from src.core.models import Task
+import logging
 """
     В реальной системе здесь был бы HTTP-клиент,
     вызовы REST API или gRPC.
 """
+logger = logging.getLogger(__name__)
+
 class ApiStubTaskSource:
     def get_tasks(self) -> Iterable[Task]:
         api_response = [
