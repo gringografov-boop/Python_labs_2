@@ -1,0 +1,20 @@
+# venv / среды
+venv/
+.env/
+.venv/
+env/
+.conda/
+__pycache__/
+
+# pytest / coverage
+.pytest_cache/
+.coverage
+htmlcov/
+
+# IDE
+.vscode/
+.idea/
+*.code-workspace
+
+# прочее
+*.pyc

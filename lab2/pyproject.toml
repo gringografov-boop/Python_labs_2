@@ -1,0 +1,19 @@
+[build-system]
+requires = ["setuptools"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "lab2-task-model"
+version = "0.1.0"
+requires-python = ">=3.12"
+
+[tool.pytest.ini_options]
+pythonpath = ["src"]
+testpaths  = ["tests"]
+
+[tool.coverage.run]
+source = ["src/task_platform"]
+
+[tool.coverage.report]
+fail_under   = 80
+show_missing = true
