@@ -11,6 +11,7 @@ from src.task_platform.descriptors import (
     DescriptionDescriptor,
     PriorityDescriptor,
     ReadonlyTimestamp,
+    TaskMeta
 )
 from src.task_platform.errors import (
     InvalidTaskIdError,
@@ -198,3 +199,13 @@ class TestRepr:
 
     def test_repr_contains_status(self, task):
         assert "pending" in repr(task)
+
+class TestTaskMetaSlots:
+    def test_no_dict(self):
+        m = TaskMeta("me")
+        assert not hasattr(m, "__dict__")
+
+    def test_cannot_add_new_attr(self):
+        m = TaskMeta("me")
+        with pytest.raises(AttributeError): 
+            m.new_attr = 123

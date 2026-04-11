@@ -1,5 +1,3 @@
-from __future__ import annotations
-
 import logging
 import uuid
 from datetime import datetime
@@ -9,6 +7,7 @@ from src.task_platform.descriptors import (
     DescriptionDescriptor,
     PriorityDescriptor,
     ReadonlyTimestamp,
+    TaskMeta
 )
 from src.task_platform.errors import InvalidStatusTransitionError
 
@@ -53,6 +52,8 @@ class Task:
         self.__dict__["_status"] = TaskStatus.PENDING
 
         self.__dict__["created_at"] = datetime.now()
+
+        self.meta = TaskMeta(created_by="system")
 
         logger.info(
             "Task created",

@@ -1,5 +1,3 @@
-from __future__ import annotations
-
 from typing import Any
 import uuid
 from datetime import datetime
@@ -76,3 +74,11 @@ class ReadonlyTimestamp:
         if obj is None:
             return self
         return obj.__dict__.get(self.name)
+    
+
+class TaskMeta:
+    __slots__ = ("created_by", "tags")
+
+    def __init__(self, created_by: str, tags: list[str] | None = None) -> None:
+        self.created_by = created_by
+        self.tags = tags or []
